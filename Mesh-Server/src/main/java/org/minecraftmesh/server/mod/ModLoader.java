@@ -10,11 +10,12 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.minecraftmesh.server.ILoader;
 import org.minecraftmesh.server.MinecraftMesh;
 import org.minecraftmesh.server.plugin.Plugin;
 
 
-public class ModLoader {
+public class ModLoader implements ILoader {
 
 	private File modsDir = new File("mods");
 	private List<ServerMod> modsList = new ArrayList<ServerMod>();
@@ -63,6 +64,7 @@ public class ModLoader {
 						MinecraftMesh.getLogger().info("Loading Plugin: " + serverMod.getClass().getSimpleName());
 						serverMod.load();
 						modsList.add(serverMod);
+						serverMod.modLoader = this;
 					}
 				}
 			}
@@ -113,5 +115,9 @@ public class ModLoader {
 	
 	public List<ServerMod> getModsList() {
 		return modsList;
+	}
+
+	public int getLoaderType() {
+		return 2;
 	}
 }

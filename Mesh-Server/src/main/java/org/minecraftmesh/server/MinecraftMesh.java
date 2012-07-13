@@ -32,16 +32,12 @@ public class MinecraftMesh {
 	public static void loadMCMesh(MinecraftServer mcServer) {
 		logger.info("Starting Minecraft Mesh " + String.format("%d.%d.%d.%d", MAJOR, MINOR, RELEASE, BUILD) + "-SERVER");
 		serverInstance = mcServer;
-		PluginLoader.loadPluginsFromFolder(pluginsDir);
+		PluginLoader.loadPluginsFromFolder(pluginsDir, pluginManager);
 		
 		if((isModSystemOn = serverInstance.propertyManagerObj.getBooleanProperty("useModSystem", true)))
 			modLoader.loadMods();
 		
 		logger.info("Finished Loading Minecraft Mesh!");
-	}
-
-	public static PluginManager getPluginManager() {
-		return pluginManager;
 	}
 	
 	public static MinecraftServer getMinecraftServer() {

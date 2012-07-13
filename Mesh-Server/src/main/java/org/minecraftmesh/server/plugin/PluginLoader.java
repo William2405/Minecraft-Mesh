@@ -13,7 +13,7 @@ import org.minecraftmesh.server.MinecraftMesh;
 
 public class PluginLoader {
 
-	public static void loadPluginsFromFolder(File folder) 
+	public static void loadPluginsFromFolder(File folder, PluginManager pluginManager) 
 	{
 		MinecraftMesh.getLogger().info("Loading plugins from \"" + folder.getName() + "\"...");
 		if(folder.exists() || folder.mkdir())
@@ -21,14 +21,14 @@ public class PluginLoader {
 				if(plugin.isFile() && (plugin.getName().endsWith(".zip") || plugin.getName().endsWith(".jar")))
 				{
 					MinecraftMesh.getLogger().info("Found archive: " + plugin.getName());
-					loadPluginFromFile(plugin);
+					loadPluginFromFile(plugin, pluginManager);
 				}
 		
-		int numberLoaded = MinecraftMesh.getPluginManager().getPluginList().size();
+		int numberLoaded = pluginManager.getPluginList().size();
 		MinecraftMesh.getLogger().info("Finished loading plugins! " + numberLoaded + ((numberLoaded > 1 || numberLoaded == 0) ? " plugins" : " plugin") + " loaded!");
 	}
 	
-	private static void loadPluginFromFile(File plugin) 
+	private static void loadPluginFromFile(File plugin, PluginManager pluginManager) 
 	{
 		try
 		{
@@ -49,7 +49,8 @@ public class PluginLoader {
 						Plugin pl = (Plugin)pluginClass.newInstance();
 						MinecraftMesh.getLogger().info("Loading Plugin: " + pl.getClass().getSimpleName());
 						pl.onLoad();
-						MinecraftMesh.getPluginManager().addPlugin(pl);
+						pluginManager.addPlugin(pl);
+						pl.pluginManager = pluginManager;
 					}
 				}
 			}

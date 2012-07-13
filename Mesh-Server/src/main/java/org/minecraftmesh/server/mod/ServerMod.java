@@ -6,6 +6,8 @@ import net.minecraft.src.Packet250CustomPayload;
 
 public abstract class ServerMod {
 
+	protected ModLoader modLoader;
+	
 	public abstract void load();
 	public abstract String getModName();
 	public abstract float getVersion();

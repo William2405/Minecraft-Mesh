@@ -34,66 +34,31 @@ public class MinecraftMeshHooks
 	protected static ArrayList<EntityListener> entityListeners = new ArrayList<EntityListener>();
 	protected static ArrayList<ItemListener> itemListeners = new ArrayList<ItemListener>();
 
-	/******************/
-	/* BlockListeners */
-	/******************/
-
-	public static void addBlockListener(BlockListener BL)
+	public static void registerListener(ILoader loader, IListenerBase listener)
 	{
-		for(int i = 0; i < blockListeners.size(); i++)
-			if(blockListeners.get(i).getClass().equals(BL.getClass()))
-				return;
-
-		blockListeners.add(BL);
-	}
-
-	public static void removeBlockListener(BlockListener BL)
-	{
-		for(int i = 0; i < blockListeners.size(); i++)
-			if(blockListeners.get(i) == BL)
-				blockListeners.remove(i);
-	}
-
-	/*******************/
-	/* EntityListeners */
-	/*******************/
-
-	public static void addEntityListener(EntityListener EL)
-	{
-		for(int i = 0; i < entityListeners.size(); i++)
-			if(entityListeners.get(i).getClass().equals(EL.getClass()))
-				return;
-
-		entityListeners.add(EL);
-	}
-
-	public static void removeEntityListener(EntityListener EL)
-	{
-		for(int i = 0; i < entityListeners.size(); i++)
-			if(entityListeners.get(i) == EL)
-				entityListeners.remove(i);
-	}
+		if(listener.canBeRegistedBy(loader.getLoaderType()))
+		{
+			if(listener.getListenerName().equals("BlockListener"))
+			{
+				for(int i = 0; i < blockListeners.size(); i++)
+					if(blockListeners.get(i) == (BlockListener)listener)
+						return;
+			}
+			else if(listener.getListenerName().equals("EntityListener"))
+			{
+				for(int i = 0; i < entityListeners.size(); i++)
+					if(entityListeners.get(i) == (EntityListener)listener)
+						return;
+			}
+			else if(listener.getListenerName().equals("ItemListener"))
+			{
+				for(int i = 0; i < itemListeners.size(); i++)
+					if(itemListeners.get(i) == (ItemListener)listener)
+						return;
+			}
+		}
+	}	
 	
-	/*****************/
-	/* ItemListeners */
-	/*****************/
-
-	public static void addItemListener(ItemListener EL)
-	{
-		for(int i = 0; i < itemListeners.size(); i++)
-			if(itemListeners.get(i).getClass().equals(EL.getClass()))
-				return;
-
-		itemListeners.add(EL);
-	}
-
-	public static void removeItemListener(ItemListener EL)
-	{
-		for(int i = 0; i < itemListeners.size(); i++)
-			if(itemListeners.get(i) == EL)
-				itemListeners.remove(i);
-	}
-
 	/***************************/
 	/* BlockListener functions */
 	/***************************/
@@ -125,13 +90,13 @@ public class MinecraftMeshHooks
 	public static void harvestBlock(World world, EntityPlayer player, int i, int j, int k, int damage)
 	{
 		for(int ii = 0; ii < blockListeners.size(); ii++)
-			blockListeners.get(ii).harvestBlock(world, player, i, j, k, damage);
+			blockListeners.get(ii).harvestBlock(world, ((EntityMeshPlayerMP)player), i, j, k, damage);
 	}
 
 	public static void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer)
 	{
 		for(int ii = 0; ii < blockListeners.size(); ii++)
-			blockListeners.get(ii).onBlockClicked(world, i, j, k, entityplayer);
+			blockListeners.get(ii).onBlockClicked(world, i, j, k, ((EntityMeshPlayerMP)entityplayer));
 	}
 
 	public static void onBlockPlaced(World world, int i, int j, int k, int l)
@@ -179,7 +144,7 @@ public class MinecraftMeshHooks
 	public static void onBlockActivated(World world, int i, int j, int k, EntityPlayer player)
 	{
 		for(int ii = 0; ii < blockListeners.size(); ii++)
-			blockListeners.get(ii).onBlockActivated(world, i, j, k, player);
+			blockListeners.get(ii).onBlockActivated(world, i, j, k, ((EntityMeshPlayerMP)player));
 	}
 	
 	public static void onPoweredBlockChange(World world, int i, int j, int k, boolean bool)
@@ -241,7 +206,7 @@ public class MinecraftMeshHooks
 	public static void onCollideWithPlayer(Entity entity, EntityPlayer entityplayer)
 	{
 		for(int ii = 0; ii < entityListeners.size(); ii++)
-			entityListeners.get(ii).onCollideWithPlayer(entity, entityplayer);
+			entityListeners.get(ii).onCollideWithPlayer(entity, ((EntityMeshPlayerMP)entityplayer));
 	}
 
 	public static void onAttacked(Entity entity, DamageSource damagesource, int damage)
@@ -351,7 +316,7 @@ public class MinecraftMeshHooks
 	public static void onInteract(Entity entity, EntityPlayer player)
 	{
 		for(int ii = 0; ii < entityListeners.size(); ii++)
-			entityListeners.get(ii).onInteract(entity, player);
+			entityListeners.get(ii).onInteract(entity, ((EntityMeshPlayerMP)player));
 	}
 
 	public static void onAnimalTamed(EntityTameable tameableCreature)
@@ -366,17 +331,17 @@ public class MinecraftMeshHooks
 	
 	public static void onItemUse(ItemStack itemstack, EntityPlayer player, World world, int i, int j, int k, int l) {	
 		for(int ii = 0; ii < itemListeners.size(); ii++)
-			itemListeners.get(ii).onItemUse(itemstack, player, world, ii, j, k, l);
+			itemListeners.get(ii).onItemUse(itemstack, ((EntityMeshPlayerMP)player), world, ii, j, k, l);
 	}
 	
 	public static void onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {	
 		for(int ii = 0; ii < itemListeners.size(); ii++)
-			itemListeners.get(ii).onItemRightClick(itemstack, world, player);
+			itemListeners.get(ii).onItemRightClick(itemstack, world, ((EntityMeshPlayerMP)player));
 	}
 	
 	public static void onFoodEaten(ItemStack itemstack, World world, EntityPlayer player) {	
 		for(int ii = 0; ii < itemListeners.size(); ii++)
-			itemListeners.get(ii).onFoodEaten(itemstack, world, player);
+			itemListeners.get(ii).onFoodEaten(itemstack, world, ((EntityMeshPlayerMP)player));
 	}
 	
 	public static void onHitEntityWith(ItemStack itemstack, EntityLiving itemUser, EntityLiving enemy) {	
@@ -396,11 +361,11 @@ public class MinecraftMeshHooks
 	
 	public static void onCreated(ItemStack itemstack, World world, EntityPlayer entityplayer) {	
 		for(int ii = 0; ii < itemListeners.size(); ii++)
-			itemListeners.get(ii).onCreated(itemstack, world, entityplayer);
+			itemListeners.get(ii).onCreated(itemstack, world, ((EntityMeshPlayerMP)entityplayer));
 	}
 	
 	public static void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int i) {	
 		for(int ii = 0; ii < itemListeners.size(); ii++)
-			itemListeners.get(ii).onPlayerStoppedUsing(itemstack, world, entityplayer, ii);
+			itemListeners.get(ii).onPlayerStoppedUsing(itemstack, world, ((EntityMeshPlayerMP)entityplayer), ii);
 	}
 }
