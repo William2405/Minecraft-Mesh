@@ -2,7 +2,7 @@ package org.minecraftmesh.server.plugin;
 
 public abstract class Plugin {
 
-	protected PluginManager pluginManager;
+	protected PluginLoader pluginManager;
 	
 	public abstract void onLoad();
 	public abstract String getPluginName();

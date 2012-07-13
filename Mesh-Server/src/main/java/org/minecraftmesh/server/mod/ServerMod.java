@@ -6,7 +6,7 @@ import net.minecraft.src.Packet250CustomPayload;
 
 public abstract class ServerMod {
 
-	protected ModLoader modLoader;
+	protected ModLoader modManager;
 	
 	public abstract void load();
 	public abstract String getModName();

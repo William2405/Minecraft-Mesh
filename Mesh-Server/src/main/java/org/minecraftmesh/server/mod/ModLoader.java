@@ -17,8 +17,8 @@ import org.minecraftmesh.server.plugin.Plugin;
 
 public class ModLoader implements ILoader {
 
-	private File modsDir = new File("mods");
-	private List<ServerMod> modsList = new ArrayList<ServerMod>();
+	private static File modsDir = new File("mods");
+	private static List<ServerMod> modsList = new ArrayList<ServerMod>();
 	
 	public void loadMods()
 	{
@@ -64,7 +64,7 @@ public class ModLoader implements ILoader {
 						MinecraftMesh.getLogger().info("Loading Plugin: " + serverMod.getClass().getSimpleName());
 						serverMod.load();
 						modsList.add(serverMod);
-						serverMod.modLoader = this;
+						serverMod.modManager = this;
 					}
 				}
 			}

@@ -5,30 +5,34 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.minecraftmesh.server.MinecraftMesh;
 
-
-public class PluginLoader {
-
-	public static void loadPluginsFromFolder(File folder, PluginManager pluginManager) 
+public class PluginLoader
+{
+	private static File pluginsDir = new File("plugins");
+	private static List<Plugin> pluginList = new ArrayList<Plugin>();
+	
+	public void loadPluginsFromFolder()
 	{
-		MinecraftMesh.getLogger().info("Loading plugins from \"" + folder.getName() + "\"...");
-		if(folder.exists() || folder.mkdir())
-			for(File plugin : folder.listFiles())
+		MinecraftMesh.getLogger().info("Loading plugins from \"" + pluginsDir.getName() + "\"...");
+		if(pluginsDir.exists() || pluginsDir.mkdir())
+			for(File plugin : pluginsDir.listFiles())
 				if(plugin.isFile() && (plugin.getName().endsWith(".zip") || plugin.getName().endsWith(".jar")))
 				{
 					MinecraftMesh.getLogger().info("Found archive: " + plugin.getName());
-					loadPluginFromFile(plugin, pluginManager);
+					loadPluginFromFile(plugin);
 				}
 		
-		int numberLoaded = pluginManager.getPluginList().size();
+		int numberLoaded = pluginList.size();
 		MinecraftMesh.getLogger().info("Finished loading plugins! " + numberLoaded + ((numberLoaded > 1 || numberLoaded == 0) ? " plugins" : " plugin") + " loaded!");
 	}
 	
-	private static void loadPluginFromFile(File plugin, PluginManager pluginManager) 
+	private static void loadPluginFromFile(File plugin) 
 	{
 		try
 		{
@@ -49,8 +53,7 @@ public class PluginLoader {
 						Plugin pl = (Plugin)pluginClass.newInstance();
 						MinecraftMesh.getLogger().info("Loading Plugin: " + pl.getClass().getSimpleName());
 						pl.onLoad();
-						pluginManager.addPlugin(pl);
-						pl.pluginManager = pluginManager;
+						pluginList.add(pl);
 					}
 				}
 			}
@@ -65,5 +68,10 @@ public class PluginLoader {
 		{
 			e.printStackTrace();
 		} 
+	}
+	
+	public List<Plugin> getPluginList()
+	{
+		return pluginList;
 	}
 }

@@ -10,7 +10,6 @@ import org.minecraftmesh.server.mod.Packet300ModPayload;
 import org.minecraftmesh.server.mod.ServerMod;
 import org.minecraftmesh.server.plugin.Plugin;
 import org.minecraftmesh.server.plugin.PluginLoader;
-import org.minecraftmesh.server.plugin.PluginManager;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.EntityPlayerMP;
@@ -18,7 +17,7 @@ import net.minecraft.src.EntityPlayerMP;
 public class MinecraftMesh {
 
 	private static MinecraftServer serverInstance;
-	private static final PluginManager pluginManager = new PluginManager();
+	private static final PluginLoader pluginLoader = new PluginLoader();
 	private static final ModLoader modLoader = new ModLoader();
 	private static boolean isModSystemOn;
 	private static final Logger logger = Logger.getLogger("Minecraft");
@@ -32,7 +31,7 @@ public class MinecraftMesh {
 	public static void loadMCMesh(MinecraftServer mcServer) {
 		logger.info("Starting Minecraft Mesh " + String.format("%d.%d.%d.%d", MAJOR, MINOR, RELEASE, BUILD) + "-SERVER");
 		serverInstance = mcServer;
-		PluginLoader.loadPluginsFromFolder(pluginsDir, pluginManager);
+		pluginLoader.loadPluginsFromFolder();
 		
 		if((isModSystemOn = serverInstance.propertyManagerObj.getBooleanProperty("useModSystem", true)))
 			modLoader.loadMods();
@@ -55,7 +54,7 @@ public class MinecraftMesh {
 	//!INFO! All the following methods are listener hooks
 	
 	public static void handleWorldTick() {
-		for(Plugin plugin : pluginManager.getPluginList())
+		for(Plugin plugin : pluginLoader.getPluginList())
 		{
 			plugin.onWorldTick();
 		}

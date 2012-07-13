@@ -7,5 +7,4 @@ public interface IListenerBase {
 	
 	public abstract String getListenerName();
 	public abstract boolean canBeRegistedBy(int registerType);
-	
 }
