@@ -353,6 +353,7 @@ public class Item
      */
     public void useItemOnEntity(ItemStack itemstack, EntityLiving entityliving)
     {
+    	MinecraftMeshHooks.useItemOnEntity(itemstack, entityliving);
     }
 
     /**
@@ -434,6 +435,7 @@ public class Item
      */
     public void onCreated(ItemStack itemstack, World world, EntityPlayer entityplayer)
     {
+    	MinecraftMeshHooks.onCreated(itemstack, world, entityplayer);
     }
 
     public boolean func_28019_b()
@@ -462,6 +464,7 @@ public class Item
      */
     public void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int i)
     {
+    	MinecraftMeshHooks.onPlayerStoppedUsing(itemstack, world, entityplayer, i);
     }
 
     /**

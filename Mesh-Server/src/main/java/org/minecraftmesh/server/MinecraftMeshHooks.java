@@ -403,9 +403,4 @@ public class MinecraftMeshHooks
 		for(int ii = 0; ii < itemListeners.size(); ii++)
 			itemListeners.get(ii).onPlayerStoppedUsing(itemstack, world, entityplayer, ii);
 	}
-	
-	public static void onItemDestroyedByUse(ItemStack itemstack, EntityPlayer player) {	
-		for(int ii = 0; ii < itemListeners.size(); ii++)
-			itemListeners.get(ii).onItemDestroyedByUse(itemstack, player);
-	}
 }

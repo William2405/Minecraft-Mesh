@@ -22,6 +22,4 @@ public class ItemListener
 	public void onCreated(ItemStack itemstack, World world, EntityPlayer entityplayer) {	}
 	
 	public void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int i) {	}
-	
-	public void onItemDestroyedByUse(ItemStack itemstack, EntityPlayer player) {	}
 }
