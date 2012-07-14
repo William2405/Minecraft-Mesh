@@ -35,16 +35,6 @@ public class MinecraftMeshPluginHooks
 	protected static ArrayList<EntityListener> entityListeners = new ArrayList<EntityListener>();
 	protected static ArrayList<ItemListener> itemListeners = new ArrayList<ItemListener>();
 	
-	public static void addRecipe(ItemStack itemstack, Object o[])
-    {
-        CraftingManager.getInstance().addRecipe(itemstack, o);
-    }
-
-    public static void addShapelessRecipe(ItemStack itemstack, Object o[])
-    {
-        CraftingManager.getInstance().addShapelessRecipe(itemstack, o);
-    }
-	
 	public static void registerListener(ILoader loader, IListenerBase listener)
 	{
 		if(listener.canBeRegistedBy(loader.getLoaderType()))
