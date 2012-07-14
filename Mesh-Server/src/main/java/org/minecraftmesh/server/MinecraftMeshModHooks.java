@@ -16,16 +16,25 @@ public class MinecraftMeshModHooks
 	
 	public static void addRecipe(ItemStack itemstack, Object o[])
     {
+		if(!MinecraftMesh.isModSystemOn())
+			return;
+		
         CraftingManager.getInstance().addRecipe(itemstack, o);
     }
 
     public static void addShapelessRecipe(ItemStack itemstack, Object o[])
     {
+    	if(!MinecraftMesh.isModSystemOn())
+			return;
+		
         CraftingManager.getInstance().addShapelessRecipe(itemstack, o);
     }
 	
 	public static void addBlockWithSpecialBlockItem(Block block, ItemBlock itemblock)
 	{
+		if(!MinecraftMesh.isModSystemOn())
+			return;
+		
 		try
 		{
 			if(block == null)
@@ -48,6 +57,9 @@ public class MinecraftMeshModHooks
 	
 	public static void addBlock(Block block)
 	{
+		if(!MinecraftMesh.isModSystemOn())
+			return;
+		
 		try
 		{
 			if(block == null)
@@ -72,6 +84,9 @@ public class MinecraftMeshModHooks
 	
 	public static void addItem(Item item)
 	{
+		if(!MinecraftMesh.isModSystemOn())
+			return;
+		
 		try
 		{
 			if(item == null)
