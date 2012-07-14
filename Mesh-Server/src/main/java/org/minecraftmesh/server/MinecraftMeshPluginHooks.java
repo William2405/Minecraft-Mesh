@@ -3,6 +3,7 @@ package org.minecraftmesh.server;
 import java.util.ArrayList;
 
 import net.minecraft.src.Block;
+import net.minecraft.src.CraftingManager;
 import net.minecraft.src.DamageSource;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityAnimal;
@@ -33,7 +34,17 @@ public class MinecraftMeshPluginHooks
 	protected static ArrayList<BlockListener> blockListeners = new ArrayList<BlockListener>();
 	protected static ArrayList<EntityListener> entityListeners = new ArrayList<EntityListener>();
 	protected static ArrayList<ItemListener> itemListeners = new ArrayList<ItemListener>();
+	
+	public static void addRecipe(ItemStack itemstack, Object o[])
+    {
+        CraftingManager.getInstance().addRecipe(itemstack, o);
+    }
 
+    public static void addShapelessRecipe(ItemStack itemstack, Object o[])
+    {
+        CraftingManager.getInstance().addShapelessRecipe(itemstack, o);
+    }
+	
 	public static void registerListener(ILoader loader, IListenerBase listener)
 	{
 		if(listener.canBeRegistedBy(loader.getLoaderType()))

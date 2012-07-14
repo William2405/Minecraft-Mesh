@@ -334,7 +334,7 @@ public class CraftingManager
     /**
      * Adds a recipe. See spreadsheet on first page for details.
      */
-    void addRecipe(ItemStack par1ItemStack, Object par2ArrayOfObj[])
+    public void addRecipe(ItemStack par1ItemStack, Object par2ArrayOfObj[])
     {
         String s = "";
         int i = 0;
@@ -406,7 +406,7 @@ public class CraftingManager
         recipes.add(new ShapedRecipes(j, k, aitemstack, par1ItemStack));
     }
 
-    void addShapelessRecipe(ItemStack par1ItemStack, Object par2ArrayOfObj[])
+    public void addShapelessRecipe(ItemStack par1ItemStack, Object par2ArrayOfObj[])
     {
         ArrayList arraylist = new ArrayList();
         Object aobj[] = par2ArrayOfObj;
