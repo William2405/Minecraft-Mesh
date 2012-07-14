@@ -10,7 +10,7 @@ import net.minecraft.src.EntityTameable;
 import net.minecraft.src.MovingObjectPosition;
 import net.minecraft.src.World;
 
-public abstract class EntityListener implements IListenerBase
+public abstract class EntityListener
 {
 	public abstract void onDeath(Entity entity);
 
@@ -64,11 +64,4 @@ public abstract class EntityListener implements IListenerBase
 	
 	public abstract void onAttackOtherEntity(Entity attacker, Entity defender, DamageSource damagesource, int damage);
 
-	public String getListenerName() {
-		return "EntityListener";
-	}
-
-	public final boolean canBeRegistedBy(int registerType) {
-		return (registerType == 1 || registerType == 2);
-	}
 }

@@ -35,27 +35,60 @@ public class MinecraftMeshPluginHooks
 	protected static ArrayList<EntityListener> entityListeners = new ArrayList<EntityListener>();
 	protected static ArrayList<ItemListener> itemListeners = new ArrayList<ItemListener>();
 	
-	public static void registerListener(ILoader loader, IListenerBase listener)
+	public static void registerListener(String name, Object listener)
 	{
-		if(listener.canBeRegistedBy(loader.getLoaderType()))
+		if(name != null && !"".equals(name) && listener != null)
 		{
-			if(listener.getListenerName().equals("BlockListener"))
+			if(name.equals("BlockListener"))
 			{
 				for(int i = 0; i < blockListeners.size(); i++)
-					if(blockListeners.get(i) == (BlockListener)listener)
+					if(blockListeners.get(i).equals(listener))
+					{
+						MinecraftMesh.getLogger().severe("Error when adding listener(\"" + name + "\"), You can't register a listener twice!");
 						return;
+					}
+				
+				if(!(listener instanceof BlockListener))
+				{
+					MinecraftMesh.getLogger().severe("Error when adding listener(\"" + name + "\"), listener object did not extend BlockListener!");
+					return;
+				}
+				
+				blockListeners.add((BlockListener)listener);
 			}
-			else if(listener.getListenerName().equals("EntityListener"))
-			{
-				for(int i = 0; i < entityListeners.size(); i++)
-					if(entityListeners.get(i) == (EntityListener)listener)
-						return;
-			}
-			else if(listener.getListenerName().equals("ItemListener"))
+			else if(name.equals("ItemListener"))
 			{
 				for(int i = 0; i < itemListeners.size(); i++)
-					if(itemListeners.get(i) == (ItemListener)listener)
+					if(itemListeners.get(i).equals(listener))
+					{
+						MinecraftMesh.getLogger().severe("Error when adding listener(\"" + name + "\"), You can't register a listener twice!");
 						return;
+					}
+				
+				if(!(listener instanceof ItemListener))
+				{
+					MinecraftMesh.getLogger().severe("Error when adding listener(\"" + name + "\"), listener object did not extend ItemListener!");
+					return;
+				}
+				
+				itemListeners.add((ItemListener)listener);
+			}
+			else if(name.equals("EntityListener"))
+			{
+				for(int i = 0; i < entityListeners.size(); i++)
+					if(entityListeners.get(i).equals(listener))
+					{
+						MinecraftMesh.getLogger().severe("Error when adding listener(\"" + name + "\"), You can't register a listener twice!");
+						return;
+					}
+				
+				if(!(listener instanceof EntityListener))
+				{
+					MinecraftMesh.getLogger().severe("Error when adding listener(\"" + name + "\"), listener object did not extend EntityListener!");
+					return;
+				}
+				
+				entityListeners.add((EntityListener)listener);
 			}
 		}
 	}	

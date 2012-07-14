@@ -341,7 +341,7 @@ public class NetworkManager
         {
             packet = (Packet)readPackets.remove(0);
             
-            if(packet.getPacketId() == 300)
+            if(packet.getPacketId() == 300 && MinecraftMesh.isModSystemOn())
             	((Packet300ModPayload)packet).processPacket(playerEntity);
         }
 

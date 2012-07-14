@@ -10,10 +10,9 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.minecraftmesh.server.ILoader;
 import org.minecraftmesh.server.MinecraftMesh;
 
-public class PluginLoader implements ILoader
+public class PluginLoader
 {
 	private static File pluginsDir = new File("plugins");
 	private static List<Plugin> pluginList = new ArrayList<Plugin>();
@@ -70,14 +69,8 @@ public class PluginLoader implements ILoader
 			e.printStackTrace();
 		} 
 	}
-	
-	public List<Plugin> getPluginList()
-	{
-		return pluginList;
-	}
 
-	public int getLoaderType() {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<Plugin> getPluginList() {
+		return pluginList;
 	}
 }

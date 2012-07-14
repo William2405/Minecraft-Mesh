@@ -6,7 +6,7 @@ import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.World;
 
-public abstract class BlockListener implements IListenerBase
+public abstract class BlockListener
 {
 	public abstract void onBlockFallenUpon(World world, int i, int j, int k, Entity entity, float f);
 	
@@ -34,11 +34,4 @@ public abstract class BlockListener implements IListenerBase
 	
 	public abstract void onPoweredBlockChange(World world, int i, int j, int k, boolean bool);
 
-	public String getListenerName() {
-		return "BlockListener";
-	}
-
-	public final boolean canBeRegistedBy(int registerType) {
-		return (registerType == 1 || registerType == 2);
-	}
 }

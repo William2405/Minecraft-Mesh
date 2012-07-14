@@ -21,7 +21,6 @@ public class MinecraftMesh {
 	private static final ModLoader modLoader = new ModLoader();
 	private static boolean isModSystemOn;
 	private static final Logger logger = Logger.getLogger("Minecraft");
-	private static final File pluginsDir = new File("plugins");
 	
 	private static final int MAJOR = 1;
 	private static final int MINOR = 0;
@@ -51,7 +50,15 @@ public class MinecraftMesh {
 		return isModSystemOn;
 	}
 	
-	//!INFO! All the following methods are listener hooks
+	public static ModLoader getModLoader() {
+		return modLoader;
+	}
+	
+	public static PluginLoader getPluginLoader() {
+		return pluginLoader;
+	}
+	
+	//!INFO! All the following methods are hooks
 	
 	public static void handleWorldTick() {
 		for(Plugin plugin : pluginLoader.getPluginList())
@@ -59,9 +66,12 @@ public class MinecraftMesh {
 			plugin.onWorldTick();
 		}
 		
-		for(ServerMod mod: modLoader.getModsList())
+		if(isModSystemOn)
 		{
-			mod.onWorldTick();
+			for(ServerMod mod: modLoader.getModsList())
+			{
+				mod.onWorldTick();
+			}
 		}
 	}
 	
@@ -69,6 +79,9 @@ public class MinecraftMesh {
 	private static final int MOD_LIST = 1;
 	public static void handlePacket300(Packet300ModPayload packet, EntityPlayerMP player) 
 	{
+		if(!isModSystemOn)
+			return;
+		
 		if(packet.modName.equals("MinecraftMesh"))
 		{
 			switch(packet.payloadId)

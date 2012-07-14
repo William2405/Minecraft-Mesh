@@ -5,7 +5,7 @@ import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
 
-public abstract class ItemListener implements IListenerBase
+public abstract class ItemListener
 {
 	public abstract void onItemUse(ItemStack itemstack, EntityPlayer player, World world, int i, int j, int k, int l);
 	
@@ -22,12 +22,5 @@ public abstract class ItemListener implements IListenerBase
 	public abstract void onCreated(ItemStack itemstack, World world, EntityPlayer entityplayer);
 	
 	public abstract void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int i);
-	
-	public String getListenerName() {
-		return "ItemListener";
-	}
 
-	public final boolean canBeRegistedBy(int registerType) {
-		return (registerType == 1 || registerType == 2);
-	}
 }
