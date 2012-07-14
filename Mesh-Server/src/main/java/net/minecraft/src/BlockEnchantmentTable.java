@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 public class BlockEnchantmentTable extends BlockContainer
 {
@@ -70,7 +70,7 @@ public class BlockEnchantmentTable extends BlockContainer
      */
     public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
     {
-    	MinecraftMeshHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
+    	MinecraftMeshPluginHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
     	
         if (par1World.isRemote)
         {

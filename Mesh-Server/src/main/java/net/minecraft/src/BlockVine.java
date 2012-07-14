@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockVine extends Block
@@ -207,7 +207,7 @@ public class BlockVine extends Block
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         if (!par1World.isRemote && !canVineStay(par1World, par2, par3, par4))
         {
@@ -366,7 +366,7 @@ public class BlockVine extends Block
      */
     public void onBlockPlaced(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onBlockPlaced(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onBlockPlaced(par1World, par2, par3, par4, par5);
     	
         byte byte0 = 0;
 
@@ -422,7 +422,7 @@ public class BlockVine extends Block
             par2EntityPlayer.addStat(StatList.mineBlockStatArray[blockID], 1);
             dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(Block.vine, 1, 0));
             
-            MinecraftMeshHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
+            MinecraftMeshPluginHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
         }
         else
         {

@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockFarmland extends Block
@@ -91,7 +91,7 @@ public class BlockFarmland extends Block
      */
     public void onFallenUpon(World par1World, int par2, int par3, int par4, Entity par5Entity, float par6)
     {
-    	MinecraftMeshHooks.onBlockFallenUpon(par1World, par2, par3, par4, par5Entity, par6);
+    	MinecraftMeshPluginHooks.onBlockFallenUpon(par1World, par2, par3, par4, par5Entity, par6);
     	
         if (par1World.rand.nextFloat() < par6 - 0.5F)
         {
@@ -150,7 +150,7 @@ public class BlockFarmland extends Block
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         super.onNeighborBlockChange(par1World, par2, par3, par4, par5);
         Material material = par1World.getBlockMaterial(par2, par3 + 1, par4);

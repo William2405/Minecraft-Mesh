@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockTNT extends Block
@@ -50,7 +50,7 @@ public class BlockTNT extends Block
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         if (par5 > 0 && Block.blocksList[par5].canProvidePower() && par1World.isBlockIndirectlyGettingPowered(par2, par3, par4))
         {
@@ -72,7 +72,7 @@ public class BlockTNT extends Block
      */
     public void onBlockDestroyedByExplosion(World par1World, int par2, int par3, int par4)
     {
-    	MinecraftMeshHooks.onBlockDestroyedByExplosion(par1World, par2, par3, par4);
+    	MinecraftMeshPluginHooks.onBlockDestroyedByExplosion(par1World, par2, par3, par4);
     	
         if (par1World.isRemote)
         {
@@ -92,7 +92,7 @@ public class BlockTNT extends Block
      */
     public void onBlockDestroyedByPlayer(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onBlockDestroyedByPlayer(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onBlockDestroyedByPlayer(par1World, par2, par3, par4, par5);
     	
         if (par1World.isRemote)
         {

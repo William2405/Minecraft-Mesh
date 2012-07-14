@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 public class BlockTrapDoor extends Block
 {
@@ -110,7 +110,7 @@ public class BlockTrapDoor extends Block
      */
     public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
     {
-    	MinecraftMeshHooks.onBlockClicked(par1World, par2, par3, par4, par5EntityPlayer);
+    	MinecraftMeshPluginHooks.onBlockClicked(par1World, par2, par3, par4, par5EntityPlayer);
     	
         blockActivated(par1World, par2, par3, par4, par5EntityPlayer);
     }
@@ -121,7 +121,7 @@ public class BlockTrapDoor extends Block
      */
     public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
     {
-    	MinecraftMeshHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
+    	MinecraftMeshPluginHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
     	
         if (blockMaterial == Material.iron)
         {
@@ -138,7 +138,7 @@ public class BlockTrapDoor extends Block
 
     public void onPoweredBlockChange(World par1World, int par2, int par3, int par4, boolean par5)
     {
-    	MinecraftMeshHooks.onPoweredBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onPoweredBlockChange(par1World, par2, par3, par4, par5);
     	
         int i = par1World.getBlockMetadata(par2, par3, par4);
         boolean flag = (i & 4) > 0;
@@ -161,7 +161,7 @@ public class BlockTrapDoor extends Block
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         if (par1World.isRemote)
         {
@@ -222,7 +222,7 @@ public class BlockTrapDoor extends Block
      */
     public void onBlockPlaced(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onBlockPlaced(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onBlockPlaced(par1World, par2, par3, par4, par5);
     	
         byte byte0 = 0;
 

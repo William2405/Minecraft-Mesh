@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockCactus extends Block
@@ -117,7 +117,7 @@ public class BlockCactus extends Block
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         if (!canBlockStay(par1World, par2, par3, par4))
         {

@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.io.PrintStream;
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class Item
@@ -239,7 +239,7 @@ public class Item
      */
     public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int i, int j, int k, int l)
     {
-    	MinecraftMeshHooks.onItemUse(par1ItemStack, par2EntityPlayer, par3World, i, j, k, l);
+    	MinecraftMeshPluginHooks.onItemUse(par1ItemStack, par2EntityPlayer, par3World, i, j, k, l);
         return false;
     }
 
@@ -257,13 +257,13 @@ public class Item
      */
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-    	MinecraftMeshHooks.onItemRightClick(par1ItemStack, par2World, par3EntityPlayer);
+    	MinecraftMeshPluginHooks.onItemRightClick(par1ItemStack, par2World, par3EntityPlayer);
         return par1ItemStack;
     }
 
     public ItemStack onFoodEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
-    	MinecraftMeshHooks.onFoodEaten(par1ItemStack, par2World, par3EntityPlayer);
+    	MinecraftMeshPluginHooks.onFoodEaten(par1ItemStack, par2World, par3EntityPlayer);
         return par1ItemStack;
     }
 
@@ -322,13 +322,13 @@ public class Item
      */
     public boolean hitEntity(ItemStack par1ItemStack, EntityLiving par2EntityLiving, EntityLiving par3EntityLiving)
     {
-    	MinecraftMeshHooks.onHitEntityWith(par1ItemStack, par2EntityLiving, par3EntityLiving);
+    	MinecraftMeshPluginHooks.onHitEntityWith(par1ItemStack, par2EntityLiving, par3EntityLiving);
         return false;
     }
 
     public boolean onBlockDestroyed(ItemStack par1ItemStack, int par2, int par3, int i, int j, EntityLiving entityliving)
     {
-    	MinecraftMeshHooks.onBlockDestroyedWith(par1ItemStack, par2, par3, i, j, entityliving);
+    	MinecraftMeshPluginHooks.onBlockDestroyedWith(par1ItemStack, par2, par3, i, j, entityliving);
         return false;
     }
 
@@ -353,7 +353,7 @@ public class Item
      */
     public void useItemOnEntity(ItemStack itemstack, EntityLiving entityliving)
     {
-    	MinecraftMeshHooks.useItemOnEntity(itemstack, entityliving);
+    	MinecraftMeshPluginHooks.useItemOnEntity(itemstack, entityliving);
     }
 
     /**
@@ -435,7 +435,7 @@ public class Item
      */
     public void onCreated(ItemStack itemstack, World world, EntityPlayer entityplayer)
     {
-    	MinecraftMeshHooks.onCreated(itemstack, world, entityplayer);
+    	MinecraftMeshPluginHooks.onCreated(itemstack, world, entityplayer);
     }
 
     public boolean func_28019_b()
@@ -464,7 +464,7 @@ public class Item
      */
     public void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int i)
     {
-    	MinecraftMeshHooks.onPlayerStoppedUsing(itemstack, world, entityplayer, i);
+    	MinecraftMeshPluginHooks.onPlayerStoppedUsing(itemstack, world, entityplayer, i);
     }
 
     /**

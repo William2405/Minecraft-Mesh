@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 public class EntityDragonBase extends EntityLiving
 {
@@ -28,7 +28,7 @@ public class EntityDragonBase extends EntityLiving
      */
     public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
     {
-    	MinecraftMeshHooks.onAttacked(this, par1DamageSource, par2);
+    	MinecraftMeshPluginHooks.onAttacked(this, par1DamageSource, par2);
     	
         return false;
     }

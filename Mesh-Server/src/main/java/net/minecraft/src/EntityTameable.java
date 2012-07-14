@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public abstract class EntityTameable extends EntityAnimal
@@ -87,7 +87,7 @@ public abstract class EntityTameable extends EntityAnimal
 
         if (par1)
         {
-        	MinecraftMeshHooks.onAnimalTamed(this);
+        	MinecraftMeshPluginHooks.onAnimalTamed(this);
             dataWatcher.updateObject(16, Byte.valueOf((byte)(byte0 | 4)));
         }
         else

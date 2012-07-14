@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockTallGrass extends BlockFlower
@@ -70,7 +70,7 @@ public class BlockTallGrass extends BlockFlower
     {
         if (!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.shiftedIndex)
         {
-        	MinecraftMeshHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
+        	MinecraftMeshPluginHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
             par2EntityPlayer.addStat(StatList.mineBlockStatArray[blockID], 1);
             dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(Block.tallGrass, 1, par6));
         }

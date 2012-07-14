@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.List;
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityMinecart extends Entity implements IInventory
@@ -168,7 +168,7 @@ public class EntityMinecart extends Entity implements IInventory
      */
     public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
     {
-    	MinecraftMeshHooks.onAttacked(this, par1DamageSource, par2);
+    	MinecraftMeshPluginHooks.onAttacked(this, par1DamageSource, par2);
     	
         if (worldObj.isRemote || isDead)
         {
@@ -1091,7 +1091,7 @@ public class EntityMinecart extends Entity implements IInventory
      */
     public boolean interact(EntityPlayer par1EntityPlayer)
     {
-    	MinecraftMeshHooks.onInteract(this, par1EntityPlayer);
+    	MinecraftMeshPluginHooks.onInteract(this, par1EntityPlayer);
     	
         if (minecartType == 0)
         {

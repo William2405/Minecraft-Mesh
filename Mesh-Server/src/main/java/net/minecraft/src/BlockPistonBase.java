@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockPistonBase extends Block
@@ -70,7 +70,7 @@ public class BlockPistonBase extends Block
      */
     public boolean blockActivated(World par1World, int par2, int par3, int i, EntityPlayer entityplayer)
     {
-    	MinecraftMeshHooks.onBlockActivated(par1World, par2, par3, i, entityplayer);
+    	MinecraftMeshPluginHooks.onBlockActivated(par1World, par2, par3, i, entityplayer);
     	
         return false;
     }
@@ -80,7 +80,7 @@ public class BlockPistonBase extends Block
      */
     public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving)
     {
-    	MinecraftMeshHooks.onBlockPlacedBy(par1World, par2, par3, par4, par5EntityLiving);
+    	MinecraftMeshPluginHooks.onBlockPlacedBy(par1World, par2, par3, par4, par5EntityLiving);
     	
         int i = determineOrientation(par1World, par2, par3, par4, (EntityPlayer)par5EntityLiving);
         par1World.setBlockMetadataWithNotify(par2, par3, par4, i);
@@ -97,7 +97,7 @@ public class BlockPistonBase extends Block
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         if (!par1World.isRemote && !ignoreUpdates)
             updatePistonState(par1World, par2, par3, par4);

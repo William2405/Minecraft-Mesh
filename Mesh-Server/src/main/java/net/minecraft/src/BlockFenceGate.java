@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 public class BlockFenceGate extends BlockDirectional
 {
@@ -99,7 +99,7 @@ public class BlockFenceGate extends BlockDirectional
      */
     public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving)
     {
-    	MinecraftMeshHooks.onBlockPlacedBy(par1World, par2, par3, par4, par5EntityLiving);
+    	MinecraftMeshPluginHooks.onBlockPlacedBy(par1World, par2, par3, par4, par5EntityLiving);
     	
         int i = (MathHelper.floor_double((double)((par5EntityLiving.rotationYaw * 4F) / 360F) + 0.5D) & 3) % 4;
         par1World.setBlockMetadataWithNotify(par2, par3, par4, i);
@@ -111,7 +111,7 @@ public class BlockFenceGate extends BlockDirectional
      */
     public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
     {
-    	MinecraftMeshHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
+    	MinecraftMeshPluginHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
     	
         int i = par1World.getBlockMetadata(par2, par3, par4);
 
@@ -142,7 +142,7 @@ public class BlockFenceGate extends BlockDirectional
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         if (par1World.isRemote)
         {

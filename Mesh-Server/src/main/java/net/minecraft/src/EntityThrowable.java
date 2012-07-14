@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.List;
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public abstract class EntityThrowable extends Entity
@@ -290,6 +290,6 @@ public abstract class EntityThrowable extends Entity
      */
     public void onCollideWithPlayer(EntityPlayer entityplayer)
     {
-    	MinecraftMeshHooks.onCollideWithPlayer(this, entityplayer);
+    	MinecraftMeshPluginHooks.onCollideWithPlayer(this, entityplayer);
     }
 }

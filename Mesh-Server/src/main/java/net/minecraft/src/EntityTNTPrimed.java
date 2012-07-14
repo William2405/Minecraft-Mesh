@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 public class EntityTNTPrimed extends Entity
 {
@@ -93,7 +93,7 @@ public class EntityTNTPrimed extends Entity
     private void explode()
     {
         float f = 4F;
-        MinecraftMeshHooks.onExplode(this, f);
+        MinecraftMeshPluginHooks.onExplode(this, f);
         worldObj.createExplosion(null, posX, posY, posZ, f);
     }
 

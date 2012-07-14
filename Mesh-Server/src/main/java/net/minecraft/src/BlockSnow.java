@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockSnow extends Block
@@ -82,7 +82,7 @@ public class BlockSnow extends Block
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         canSnowStay(par1World, par2, par3, par4);
     }
@@ -110,7 +110,7 @@ public class BlockSnow extends Block
      */
     public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
     {
-    	MinecraftMeshHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
+    	MinecraftMeshPluginHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
     	
         int i = Item.snowball.shiftedIndex;
         float f = 0.7F;

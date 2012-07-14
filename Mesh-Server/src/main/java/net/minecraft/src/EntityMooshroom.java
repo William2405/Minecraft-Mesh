@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 public class EntityMooshroom extends EntityCow
 {
@@ -22,14 +22,14 @@ public class EntityMooshroom extends EntityCow
         {
             if (itemstack.stackSize == 1)
             {
-            	MinecraftMeshHooks.onInteract(this, par1EntityPlayer);
+            	MinecraftMeshPluginHooks.onInteract(this, par1EntityPlayer);
                 par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, new ItemStack(Item.bowlSoup));
                 return true;
             }
 
             if (par1EntityPlayer.inventory.addItemStackToInventory(new ItemStack(Item.bowlSoup)) && !par1EntityPlayer.capabilities.isCreativeMode)
             {
-            	MinecraftMeshHooks.onInteract(this, par1EntityPlayer);
+            	MinecraftMeshPluginHooks.onInteract(this, par1EntityPlayer);
                 par1EntityPlayer.inventory.decrStackSize(par1EntityPlayer.inventory.currentItem, 1);
                 return true;
             }
@@ -37,7 +37,7 @@ public class EntityMooshroom extends EntityCow
 
         if (itemstack != null && itemstack.itemID == Item.shears.shiftedIndex && getGrowingAge() >= 0)
         {
-        	MinecraftMeshHooks.onInteract(this, par1EntityPlayer);
+        	MinecraftMeshPluginHooks.onInteract(this, par1EntityPlayer);
         	
             setDead();
             worldObj.spawnParticle("largeexplode", posX, posY + (double)(height / 2.0F), posZ, 0.0D, 0.0D, 0.0D);

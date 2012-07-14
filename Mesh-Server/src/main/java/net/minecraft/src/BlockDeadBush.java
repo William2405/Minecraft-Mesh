@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockDeadBush extends BlockFlower
@@ -49,7 +49,7 @@ public class BlockDeadBush extends BlockFlower
         {
             par2EntityPlayer.addStat(StatList.mineBlockStatArray[blockID], 1);
             dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(Block.deadBush, 1, par6));
-            MinecraftMeshHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
+            MinecraftMeshPluginHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
         }
         else
         {

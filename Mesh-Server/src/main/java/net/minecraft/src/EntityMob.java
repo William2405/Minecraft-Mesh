@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public abstract class EntityMob extends EntityCreature implements IMob
@@ -69,7 +69,7 @@ public abstract class EntityMob extends EntityCreature implements IMob
      */
     public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
     {
-    	MinecraftMeshHooks.onDamageEntity(this, par1DamageSource, par2);
+    	MinecraftMeshPluginHooks.onDamageEntity(this, par1DamageSource, par2);
     	
         if (super.attackEntityFrom(par1DamageSource, par2))
         {
@@ -107,7 +107,7 @@ public abstract class EntityMob extends EntityCreature implements IMob
             i -= 2 << getActivePotionEffect(Potion.weakness).getAmplifier();
         }
 
-        MinecraftMeshHooks.onAttackOtherEntity(this, par1Entity, DamageSource.causeMobDamage(this), i);
+        MinecraftMeshPluginHooks.onAttackOtherEntity(this, par1Entity, DamageSource.causeMobDamage(this), i);
         return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), i);
     }
 

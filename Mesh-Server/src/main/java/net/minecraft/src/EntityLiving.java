@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.*;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public abstract class EntityLiving extends Entity
@@ -812,7 +812,7 @@ public abstract class EntityLiving extends Entity
      */
     public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
     {
-    	MinecraftMeshHooks.onAttacked(this, par1DamageSource, par2);
+    	MinecraftMeshPluginHooks.onAttacked(this, par1DamageSource, par2);
     	
         if (worldObj.isRemote)
         {
@@ -989,7 +989,7 @@ public abstract class EntityLiving extends Entity
      */
     protected void damageEntity(DamageSource par1DamageSource, int par2)
     {
-    	MinecraftMeshHooks.onDamageEntity(this, par1DamageSource, par2);
+    	MinecraftMeshPluginHooks.onDamageEntity(this, par1DamageSource, par2);
         par2 = applyArmorCalculations(par1DamageSource, par2);
         par2 = applyPotionDamageCalculations(par1DamageSource, par2);
         health -= par2;
@@ -1032,7 +1032,7 @@ public abstract class EntityLiving extends Entity
      */
     public void knockBack(Entity par1Entity, int par2, double par3, double par5)
     {
-    	MinecraftMeshHooks.onKnockBack(this, par1Entity, par2, par3, par5);
+    	MinecraftMeshPluginHooks.onKnockBack(this, par1Entity, par2, par3, par5);
         isAirBorne = true;
         float f = MathHelper.sqrt_double(par3 * par3 + par5 * par5);
         float f1 = 0.4F;
@@ -1054,7 +1054,7 @@ public abstract class EntityLiving extends Entity
      */
     public void onDeath(DamageSource par1DamageSource)
     {
-    	MinecraftMeshHooks.onDeath(this, par1DamageSource);
+    	MinecraftMeshPluginHooks.onDeath(this, par1DamageSource);
         Entity entity = par1DamageSource.getEntity();
 
         if (scoreValue >= 0 && entity != null)
@@ -1409,7 +1409,7 @@ public abstract class EntityLiving extends Entity
 
     public void setJumping(boolean par1)
     {
-    	MinecraftMeshHooks.onSetJumping(this, par1);
+    	MinecraftMeshPluginHooks.onSetJumping(this, par1);
         isJumping = par1;
     }
 
@@ -1572,7 +1572,7 @@ public abstract class EntityLiving extends Entity
      */
     protected void jump()
     {
-    	MinecraftMeshHooks.onJump(this);
+    	MinecraftMeshPluginHooks.onJump(this);
         motionY = 0.41999998688697815D;
 
         if (isPotionActive(Potion.jump))
@@ -1603,7 +1603,7 @@ public abstract class EntityLiving extends Entity
      */
     protected void despawnEntity()
     {
-    	MinecraftMeshHooks.onDespawn(this);
+    	MinecraftMeshPluginHooks.onDespawn(this);
         EntityPlayer entityplayer = worldObj.getClosestPlayerToEntity(this, -1D);
 
         if (entityplayer != null)
@@ -1780,7 +1780,7 @@ public abstract class EntityLiving extends Entity
      */
     public void onEntityDeath()
     {
-    	MinecraftMeshHooks.onDeath(this);
+    	MinecraftMeshPluginHooks.onDeath(this);
     }
 
     /**

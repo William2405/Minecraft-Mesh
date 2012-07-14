@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntitySnowman extends EntityGolem
@@ -43,7 +43,7 @@ public class EntitySnowman extends EntityGolem
 
         if (isWet())
         {
-        	MinecraftMeshHooks.onAttacked(this, DamageSource.drown, 1);
+        	MinecraftMeshPluginHooks.onAttacked(this, DamageSource.drown, 1);
         	
             attackEntityFrom(DamageSource.drown, 1);
         }
@@ -53,7 +53,7 @@ public class EntitySnowman extends EntityGolem
 
         if (worldObj.getBiomeGenForCoords(i, k).getFloatTemperature() > 1.0F)
         {
-        	MinecraftMeshHooks.onAttacked(this, DamageSource.onFire, 1);
+        	MinecraftMeshPluginHooks.onAttacked(this, DamageSource.onFire, 1);
         	
             attackEntityFrom(DamageSource.onFire, 1);
         }

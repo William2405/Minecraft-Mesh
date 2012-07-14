@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityItem extends Entity
@@ -143,7 +143,7 @@ public class EntityItem extends Entity
      */
     public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
     {
-    	MinecraftMeshHooks.onAttacked(this, par1DamageSource, par2);
+    	MinecraftMeshPluginHooks.onAttacked(this, par1DamageSource, par2);
     	
         setBeenAttacked();
         health -= par2;
@@ -187,7 +187,7 @@ public class EntityItem extends Entity
      */
     public void onCollideWithPlayer(EntityPlayer par1EntityPlayer)
     {
-    	MinecraftMeshHooks.onCollideWithPlayer(this, par1EntityPlayer);
+    	MinecraftMeshPluginHooks.onCollideWithPlayer(this, par1EntityPlayer);
     	
         if (worldObj.isRemote)
         {

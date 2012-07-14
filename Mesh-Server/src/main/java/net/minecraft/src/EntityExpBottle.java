@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityExpBottle extends EntityThrowable
@@ -42,7 +42,7 @@ public class EntityExpBottle extends EntityThrowable
      */
     protected void onImpact(MovingObjectPosition par1MovingObjectPosition)
     {
-    	MinecraftMeshHooks.onImpact(this, par1MovingObjectPosition);
+    	MinecraftMeshPluginHooks.onImpact(this, par1MovingObjectPosition);
     	
         if (!worldObj.isRemote)
         {

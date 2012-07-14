@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.List;
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public abstract class Entity
@@ -235,7 +235,7 @@ public abstract class Entity
      */
     public void setDead()
     {
-    	MinecraftMeshHooks.onDeath(this);
+    	MinecraftMeshPluginHooks.onDeath(this);
     	
         isDead = true;
     }
@@ -245,7 +245,7 @@ public abstract class Entity
      */
     protected void setSize(float par1, float par2)
     {
-    	MinecraftMeshHooks.onSetSize(this, par1, par2);
+    	MinecraftMeshPluginHooks.onSetSize(this, par1, par2);
     	
         width = par1;
         height = par2;
@@ -256,7 +256,7 @@ public abstract class Entity
      */
     protected void setRotation(float par1, float par2)
     {
-    	MinecraftMeshHooks.onSetRotation(this, par1, par2);
+    	MinecraftMeshPluginHooks.onSetRotation(this, par1, par2);
     	
         rotationYaw = par1 % 360F;
         rotationPitch = par2 % 360F;
@@ -267,7 +267,7 @@ public abstract class Entity
      */
     public void setPosition(double par1, double par3, double par5)
     {
-    	MinecraftMeshHooks.onSetPosition(this, par1, par3, par5);
+    	MinecraftMeshPluginHooks.onSetPosition(this, par1, par3, par5);
     	
         posX = par1;
         posY = par3;
@@ -420,7 +420,7 @@ public abstract class Entity
      */
     public void setFire(int par1)
     {
-    	MinecraftMeshHooks.onSetFire(this, par1);
+    	MinecraftMeshPluginHooks.onSetFire(this, par1);
     	
         int i = par1 * 20;
 
@@ -894,7 +894,7 @@ public abstract class Entity
      */
     protected void fall(float par1)
     {
-    	MinecraftMeshHooks.onFall(this, par1);
+    	MinecraftMeshPluginHooks.onFall(this, par1);
     	
         if (riddenByEntity != null)
         {
@@ -1106,7 +1106,7 @@ public abstract class Entity
      */
     public void onCollideWithPlayer(EntityPlayer entityplayer)
     {
-    	MinecraftMeshHooks.onCollideWithPlayer(this, entityplayer);
+    	MinecraftMeshPluginHooks.onCollideWithPlayer(this, entityplayer);
     }
 
     /**
@@ -1170,7 +1170,7 @@ public abstract class Entity
      */
     public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
     {
-    	MinecraftMeshHooks.onAttacked(this, par1DamageSource, par2);
+    	MinecraftMeshPluginHooks.onAttacked(this, par1DamageSource, par2);
     	
         setBeenAttacked();
         return false;
@@ -1588,7 +1588,7 @@ public abstract class Entity
      */
     public void setSneaking(boolean par1)
     {
-    	MinecraftMeshHooks.changeSneaking(this, par1);
+    	MinecraftMeshPluginHooks.changeSneaking(this, par1);
     	
         setFlag(1, par1);
     }
@@ -1606,14 +1606,14 @@ public abstract class Entity
      */
     public void setSprinting(boolean par1)
     {
-    	MinecraftMeshHooks.changeSprinting(this, par1);
+    	MinecraftMeshPluginHooks.changeSprinting(this, par1);
     	
         setFlag(3, par1);
     }
 
     public void setEating(boolean par1)
     {
-    	MinecraftMeshHooks.changeEating(this, par1);
+    	MinecraftMeshPluginHooks.changeEating(this, par1);
     	
         setFlag(4, par1);
     }
@@ -1659,7 +1659,7 @@ public abstract class Entity
      */
     public void onStruckByLightning(EntityLightningBolt par1EntityLightningBolt)
     {
-    	MinecraftMeshHooks.onStruckByLightning(this, par1EntityLightningBolt);
+    	MinecraftMeshPluginHooks.onStruckByLightning(this, par1EntityLightningBolt);
     	
         dealFireDamage(5);
         fire++;
@@ -1675,7 +1675,7 @@ public abstract class Entity
      */
     public void onKillEntity(EntityLiving entityliving)
     {
-    	MinecraftMeshHooks.onKillEntity(this, entityliving);
+    	MinecraftMeshPluginHooks.onKillEntity(this, entityliving);
     }
 
     /**
@@ -1782,7 +1782,7 @@ public abstract class Entity
      */
     public void setInWeb()
     {
-    	MinecraftMeshHooks.onSetInWeb(this);
+    	MinecraftMeshPluginHooks.onSetInWeb(this);
     	
         isInWeb = true;
         fallDistance = 0.0F;

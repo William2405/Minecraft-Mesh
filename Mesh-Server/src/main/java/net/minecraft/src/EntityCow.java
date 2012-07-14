@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityCow extends EntityAnimal
@@ -128,7 +128,7 @@ public class EntityCow extends EntityAnimal
 
         if (itemstack != null && itemstack.itemID == Item.bucketEmpty.shiftedIndex)
         {
-        	MinecraftMeshHooks.onInteract(this, par1EntityPlayer);
+        	MinecraftMeshPluginHooks.onInteract(this, par1EntityPlayer);
             par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, new ItemStack(Item.bucketMilk));
             return true;
         }

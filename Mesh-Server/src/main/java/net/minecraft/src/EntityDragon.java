@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.*;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityDragon extends EntityDragonBase
@@ -685,7 +685,7 @@ public class EntityDragon extends EntityDragonBase
      */
     protected void despawnEntity()
     {
-    	MinecraftMeshHooks.onDespawn(this);
+    	MinecraftMeshPluginHooks.onDespawn(this);
     }
 
     /**

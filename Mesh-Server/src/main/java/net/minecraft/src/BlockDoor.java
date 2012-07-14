@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockDoor extends Block
@@ -170,7 +170,7 @@ public class BlockDoor extends Block
      */
     public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
     {
-    	MinecraftMeshHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
+    	MinecraftMeshPluginHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
     	
         if (blockMaterial == Material.iron)
         {
@@ -232,7 +232,7 @@ public class BlockDoor extends Block
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         int i = par1World.getBlockMetadata(par2, par3, par4);
 

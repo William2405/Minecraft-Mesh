@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class Block
@@ -17,7 +17,7 @@ public class Block
     public static final StepSound soundGlassFootstep;
     public static final StepSound soundClothFootstep;
     public static final StepSound soundSandFootstep;
-    public static final Block blocksList[];
+    public static final Block blocksList[];			// might need to be public
     public static final boolean opaqueCubeLookup[];
     public static final int lightOpacity[];
     public static final boolean canBlockGrass[];
@@ -496,7 +496,7 @@ public class Block
      */
     public void onBlockDestroyedByPlayer(World world, int i, int j, int k, int l)
     {
-    	MinecraftMeshHooks.onBlockDestroyedByPlayer(world, i, j, k, l);
+    	MinecraftMeshPluginHooks.onBlockDestroyedByPlayer(world, i, j, k, l);
     }
 
     /**
@@ -505,7 +505,7 @@ public class Block
      */
     public void onNeighborBlockChange(World world, int i, int j, int k, int l)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(world, i, j, k, l);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(world, i, j, k, l);
     }
 
     /**
@@ -808,7 +808,7 @@ public class Block
      */
     public void onBlockDestroyedByExplosion(World world, int i, int j, int k)
     {
-    	MinecraftMeshHooks.onBlockDestroyedByExplosion(world, i, j, k);
+    	MinecraftMeshPluginHooks.onBlockDestroyedByExplosion(world, i, j, k);
     }
 
     /**
@@ -842,7 +842,7 @@ public class Block
      */
     public void onEntityWalking(World world, int i, int j, int k, Entity entity)
     {
-    	MinecraftMeshHooks.onEntityWalking(world, i, j, k, entity);
+    	MinecraftMeshPluginHooks.onEntityWalking(world, i, j, k, entity);
     }
 
     /**
@@ -851,7 +851,7 @@ public class Block
      */
     public void onBlockPlaced(World world, int i, int j, int k, int l)
     {
-    	MinecraftMeshHooks.onBlockPlaced(world, i, j, k, l);
+    	MinecraftMeshPluginHooks.onBlockPlaced(world, i, j, k, l);
     }
 
     /**
@@ -859,7 +859,7 @@ public class Block
      */
     public void onBlockClicked(World world, int i, int j, int k, EntityPlayer entityplayer)
     {
-    	MinecraftMeshHooks.onBlockClicked(world, i, j, k, entityplayer);
+    	MinecraftMeshPluginHooks.onBlockClicked(world, i, j, k, entityplayer);
     }
 
     /**
@@ -897,7 +897,7 @@ public class Block
      */
     public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity)
     {
-    	MinecraftMeshHooks.onEntityCollidedWithBlock(world, i, j, k, entity);
+    	MinecraftMeshPluginHooks.onEntityCollidedWithBlock(world, i, j, k, entity);
     }
 
     /**
@@ -921,7 +921,7 @@ public class Block
      */
     public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6)
     {
-    	MinecraftMeshHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
+    	MinecraftMeshPluginHooks.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
     	
         par2EntityPlayer.addStat(StatList.mineBlockStatArray[blockID], 1);
         par2EntityPlayer.addExhaustion(0.025F);
@@ -984,7 +984,7 @@ public class Block
      */
     public void onBlockPlacedBy(World world, int i, int j, int k, EntityLiving entityliving)
     {
-    	MinecraftMeshHooks.onBlockPlacedBy(world, i, j, k, entityliving);
+    	MinecraftMeshPluginHooks.onBlockPlacedBy(world, i, j, k, entityliving);
     }
 
     /**
@@ -1012,7 +1012,7 @@ public class Block
 
     public void powerBlock(World world, int i, int j, int k, int l, int i1)
     {
-    	MinecraftMeshHooks.powerBlock(world, i, j, k, l, i1);
+    	MinecraftMeshPluginHooks.powerBlock(world, i, j, k, l, i1);
     }
 
     /**
@@ -1046,7 +1046,7 @@ public class Block
      */
     public void onFallenUpon(World world, int i, int j, int k, Entity entity, float f)
     {
-    	MinecraftMeshHooks.onBlockFallenUpon(world, i, j, k, entity, f);
+    	MinecraftMeshPluginHooks.onBlockFallenUpon(world, i, j, k, entity, f);
     }
 
     static

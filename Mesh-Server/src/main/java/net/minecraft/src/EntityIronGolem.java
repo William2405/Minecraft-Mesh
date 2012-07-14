@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityIronGolem extends EntityGolem
@@ -151,7 +151,7 @@ public class EntityIronGolem extends EntityGolem
         field_48386_c = 10;
         worldObj.setEntityState(this, (byte)4);
         int damage = 7 + rand.nextInt(15);
-        MinecraftMeshHooks.onAttackOtherEntity(this, par1Entity, DamageSource.causeMobDamage(this), damage);
+        MinecraftMeshPluginHooks.onAttackOtherEntity(this, par1Entity, DamageSource.causeMobDamage(this), damage);
         boolean flag = par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), damage);
 
         if (flag)

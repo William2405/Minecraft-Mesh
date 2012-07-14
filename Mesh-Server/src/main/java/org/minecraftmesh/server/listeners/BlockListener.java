@@ -38,7 +38,7 @@ public abstract class BlockListener implements IListenerBase
 		return "BlockListener";
 	}
 
-	public boolean canBeRegistedBy(int registerType) {
+	public final boolean canBeRegistedBy(int registerType) {
 		return (registerType == 1 || registerType == 2);
 	}
 }

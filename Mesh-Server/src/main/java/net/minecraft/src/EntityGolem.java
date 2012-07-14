@@ -1,6 +1,6 @@
 package net.minecraft.src;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 public abstract class EntityGolem extends EntityCreature implements IAnimals
 {
@@ -14,7 +14,7 @@ public abstract class EntityGolem extends EntityCreature implements IAnimals
      */
     protected void fall(float f)
     {
-    	MinecraftMeshHooks.onFall(this, f);
+    	MinecraftMeshPluginHooks.onFall(this, f);
     }
 
     /**

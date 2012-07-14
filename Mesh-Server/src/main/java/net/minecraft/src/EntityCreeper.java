@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityCreeper extends EntityMob
@@ -105,12 +105,12 @@ public class EntityCreeper extends EntityMob
                 {
                     if (getPowered())
                     {
-                    	MinecraftMeshHooks.onExplode(this, 6F);
+                    	MinecraftMeshPluginHooks.onExplode(this, 6F);
                         worldObj.createExplosion(this, posX, posY, posZ, 6F);
                     }
                     else
                     {
-                    	MinecraftMeshHooks.onExplode(this, 3F);
+                    	MinecraftMeshPluginHooks.onExplode(this, 3F);
                         worldObj.createExplosion(this, posX, posY, posZ, 3F);
                     }
 
@@ -143,7 +143,7 @@ public class EntityCreeper extends EntityMob
      */
     public void onDeath(DamageSource par1DamageSource)
     {
-    	MinecraftMeshHooks.onDeath(this, par1DamageSource);
+    	MinecraftMeshPluginHooks.onDeath(this, par1DamageSource);
     	
         super.onDeath(par1DamageSource);
 

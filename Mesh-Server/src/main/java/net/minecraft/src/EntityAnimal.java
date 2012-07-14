@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.List;
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public abstract class EntityAnimal extends EntityAgeable implements IAnimals
@@ -333,7 +333,7 @@ public abstract class EntityAnimal extends EntityAgeable implements IAnimals
      */
     public boolean interact(EntityPlayer par1EntityPlayer)
     {
-    	MinecraftMeshHooks.onInteract(this, par1EntityPlayer);
+    	MinecraftMeshPluginHooks.onInteract(this, par1EntityPlayer);
     	
         ItemStack itemstack = par1EntityPlayer.inventory.getCurrentItem();
 

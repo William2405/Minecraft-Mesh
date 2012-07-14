@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.Iterator;
 import java.util.List;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityPotion extends EntityThrowable
@@ -58,7 +58,7 @@ public class EntityPotion extends EntityThrowable
      */
     protected void onImpact(MovingObjectPosition par1MovingObjectPosition)
     {
-    	MinecraftMeshHooks.onImpact(this, par1MovingObjectPosition);
+    	MinecraftMeshPluginHooks.onImpact(this, par1MovingObjectPosition);
     	
         if (!worldObj.isRemote)
         {

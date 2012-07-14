@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntityWolf extends EntityTameable
@@ -302,7 +302,7 @@ public class EntityWolf extends EntityTameable
     public boolean attackEntityAsMob(Entity par1Entity)
     {
         byte byte0 = ((byte)(isTamed() ? 4 : 2));
-        MinecraftMeshHooks.onAttackOtherEntity(this, par1Entity, DamageSource.causeMobDamage(this), byte0);
+        MinecraftMeshPluginHooks.onAttackOtherEntity(this, par1Entity, DamageSource.causeMobDamage(this), byte0);
         return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), byte0);
     }
 

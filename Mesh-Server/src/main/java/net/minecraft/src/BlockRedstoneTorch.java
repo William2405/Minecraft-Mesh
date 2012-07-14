@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.*;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockRedstoneTorch extends BlockTorch

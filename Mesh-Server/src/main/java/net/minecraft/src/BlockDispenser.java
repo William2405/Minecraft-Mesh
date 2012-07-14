@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockDispenser extends BlockContainer
@@ -112,7 +112,7 @@ public class BlockDispenser extends BlockContainer
      */
     public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
     {
-    	MinecraftMeshHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
+    	MinecraftMeshPluginHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
     	
         if (par1World.isRemote)
         {
@@ -242,7 +242,7 @@ public class BlockDispenser extends BlockContainer
      */
     public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5)
     {
-    	MinecraftMeshHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
+    	MinecraftMeshPluginHooks.onNeighborBlockChange(par1World, par2, par3, par4, par5);
     	
         if (par5 > 0 && Block.blocksList[par5].canProvidePower())
         {
@@ -279,7 +279,7 @@ public class BlockDispenser extends BlockContainer
      */
     public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving)
     {
-    	MinecraftMeshHooks.onBlockPlacedBy(par1World, par2, par3, par4, par5EntityLiving);
+    	MinecraftMeshPluginHooks.onBlockPlacedBy(par1World, par2, par3, par4, par5EntityLiving);
     	
         int i = MathHelper.floor_double((double)((par5EntityLiving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
 

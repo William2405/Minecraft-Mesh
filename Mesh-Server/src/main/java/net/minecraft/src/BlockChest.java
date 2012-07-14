@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.*;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class BlockChest extends BlockContainer
@@ -79,7 +79,7 @@ public class BlockChest extends BlockContainer
      */
     public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLiving par5EntityLiving)
     {
-    	MinecraftMeshHooks.onBlockPlacedBy(par1World, par2, par3, par4, par5EntityLiving);
+    	MinecraftMeshPluginHooks.onBlockPlacedBy(par1World, par2, par3, par4, par5EntityLiving);
     	
         int i = par1World.getBlockId(par2, par3, par4 - 1);
         int j = par1World.getBlockId(par2, par3, par4 + 1);
@@ -425,7 +425,7 @@ public class BlockChest extends BlockContainer
      */
     public boolean blockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer)
     {
-    	MinecraftMeshHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
+    	MinecraftMeshPluginHooks.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer);
     	
         Object obj = (TileEntityChest)par1World.getBlockTileEntity(par2, par3, par4);
 

@@ -2,7 +2,7 @@ package net.minecraft.src;
 
 import java.util.Random;
 
-import org.minecraftmesh.server.MinecraftMeshHooks;
+import org.minecraftmesh.server.MinecraftMeshPluginHooks;
 
 
 public class EntitySilverfish extends EntityMob
@@ -87,7 +87,7 @@ public class EntitySilverfish extends EntityMob
      */
     protected void attackEntity(Entity par1Entity, float par2)
     {
-    	MinecraftMeshHooks.onAttackOtherEntity(this, par1Entity, DamageSource.causeMobDamage(this), attackStrength);
+    	MinecraftMeshPluginHooks.onAttackOtherEntity(this, par1Entity, DamageSource.causeMobDamage(this), attackStrength);
     	
         if (attackTime <= 0 && par2 < 1.2F && par1Entity.boundingBox.maxY > boundingBox.minY && par1Entity.boundingBox.minY < boundingBox.maxY)
         {
