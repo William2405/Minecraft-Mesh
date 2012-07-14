@@ -35,6 +35,10 @@ public class MinecraftMeshPluginHooks
 	protected static ArrayList<EntityListener> entityListeners = new ArrayList<EntityListener>();
 	protected static ArrayList<ItemListener> itemListeners = new ArrayList<ItemListener>();
 	
+	public static final String BLOCK_LISTENER    = "BlockListener";
+	public static final String ITEM_LISTENER     = "ItemListener";
+	public static final String ENTITY_LISTENER   = "EntityListener";
+	
 	public static void registerListener(String name, Object listener)
 	{
 		if(name != null && !"".equals(name) && listener != null)
