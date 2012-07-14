@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.util.*;
 import java.util.logging.Logger;
 
+import org.minecraftmesh.server.MinecraftMesh;
 import org.minecraftmesh.server.mod.Packet300ModPayload;
 
 import net.minecraft.server.MinecraftServer;
@@ -155,10 +156,13 @@ public class NetLoginHandler extends NetHandler
             NetServerHandler netserverhandler = new NetServerHandler(mcServer, netManager, entityplayermp);
             
             /*Minecraft Mesh Mod API: Request Mod List*/
-            Packet300ModPayload modListRq = new Packet300ModPayload();
-            modListRq.modName = "MinecraftMesh";
-            modListRq.payloadId = 1;
-            netserverhandler.sendPacket(modListRq);
+            if(MinecraftMesh.isModSystemOn())
+            {
+            	Packet300ModPayload modListRq = new Packet300ModPayload();
+                modListRq.modName = "MinecraftMesh";
+                modListRq.payloadId = 1;
+                netserverhandler.sendPacket(modListRq);
+            }
             /*===================END==================*/
             
             netserverhandler.sendPacket(new Packet1Login("", entityplayermp.entityId, worldserver.getWorldInfo().getTerrainType(), entityplayermp.itemInWorldManager.getGameType(), worldserver.worldProvider.worldType, (byte)worldserver.difficultySetting, (byte)worldserver.getHeight(), (byte)mcServer.configManager.getMaxPlayers()));
