@@ -521,7 +521,6 @@ public class Block
      */
     public void onBlockAdded(World world, int i, int j, int k)
     {
-    	MinecraftMeshHooks.onBlockAdded(world, i, j, k);
     }
 
     /**
@@ -529,7 +528,6 @@ public class Block
      */
     public void onBlockRemoval(World world, int i, int j, int k)
     {
-    	MinecraftMeshHooks.onBlockRemoval(world, i, j, k);
     }
 
     /**

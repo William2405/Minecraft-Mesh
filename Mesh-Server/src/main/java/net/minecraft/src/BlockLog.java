@@ -43,8 +43,6 @@ public class BlockLog extends Block
      */
     public void onBlockRemoval(World par1World, int par2, int par3, int par4)
     {
-    	MinecraftMeshHooks.onBlockRemoval(par1World, par2, par3, par4);
-    	
         byte byte0 = 4;
         int i = byte0 + 1;
 

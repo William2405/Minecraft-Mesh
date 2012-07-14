@@ -26,10 +26,6 @@ public abstract class BlockListener implements IListenerBase
 	
 	public abstract void onBlockDestroyedByExplosion(World world, int i, int j, int k);
 	
-	public abstract void onBlockAdded(World world, int i, int j, int k);
-	
-	public abstract void onBlockRemoval(World world, int i, int j, int k);
-	
 	public abstract void onNeighborBlockChange(World world, int i, int j, int k, int l);
 	
 	public abstract void onBlockDestroyedByPlayer(World world, int i, int j, int k, int l);

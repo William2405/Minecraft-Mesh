@@ -200,8 +200,6 @@ public class BlockPressurePlate extends Block
      */
     public void onBlockRemoval(World par1World, int par2, int par3, int par4)
     {
-    	MinecraftMeshHooks.onBlockRemoval(par1World, par2, par3, par4);
-    	
         int i = par1World.getBlockMetadata(par2, par3, par4);
 
         if (i > 0)

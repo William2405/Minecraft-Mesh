@@ -20,8 +20,6 @@ public class BlockSand extends Block
      */
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
-    	MinecraftMeshHooks.onBlockAdded(par1World, par2, par3, par4);
-    	
         par1World.scheduleBlockUpdate(par2, par3, par4, blockID, tickRate());
     }
 

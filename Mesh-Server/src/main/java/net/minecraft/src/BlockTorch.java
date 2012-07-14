@@ -161,8 +161,6 @@ public class BlockTorch extends Block
      */
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
-    	MinecraftMeshHooks.onBlockAdded(par1World, par2, par3, par4);
-    	
         if (par1World.isBlockNormalCubeDefault(par2 - 1, par3, par4, true))
         {
             par1World.setBlockMetadataWithNotify(par2, par3, par4, 1);

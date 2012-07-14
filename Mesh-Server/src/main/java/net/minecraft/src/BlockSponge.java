@@ -15,7 +15,6 @@ public class BlockSponge extends Block
      */
     public void onBlockAdded(World world, int i, int j, int k)
     {
-    	MinecraftMeshHooks.onBlockAdded(world, i, j, k);
     }
 
     /**
@@ -23,6 +22,5 @@ public class BlockSponge extends Block
      */
     public void onBlockRemoval(World world, int i, int j, int k)
     {
-    	MinecraftMeshHooks.onBlockRemoval(world, i, j, k);
     }
 }

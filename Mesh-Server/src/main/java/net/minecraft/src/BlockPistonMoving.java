@@ -26,7 +26,6 @@ public class BlockPistonMoving extends BlockContainer
      */
     public void onBlockAdded(World world, int i, int j, int k)
     {
-    	MinecraftMeshHooks.onBlockAdded(world, i, j, k);
     }
 
     /**
@@ -39,7 +38,6 @@ public class BlockPistonMoving extends BlockContainer
         if (tileentity != null && (tileentity instanceof TileEntityPiston))
         {
             ((TileEntityPiston)tileentity).clearPistonTileEntity();
-            MinecraftMeshHooks.onBlockRemoval(par1World, par2, par3, par4);
         }
         else
         {

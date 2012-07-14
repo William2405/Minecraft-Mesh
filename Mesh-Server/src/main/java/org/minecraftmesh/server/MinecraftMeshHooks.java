@@ -117,18 +117,6 @@ public class MinecraftMeshHooks
 			blockListeners.get(ii).onBlockDestroyedByExplosion(world, i, j, k);
 	}
 
-	public static void onBlockAdded(World world, int i, int j, int k)
-	{
-		for(int ii = 0; ii < blockListeners.size(); ii++)
-			blockListeners.get(ii).onBlockAdded(world, i, j, k);
-	}
-
-	public static void onBlockRemoval(World world, int i, int j, int k)
-	{
-		for(int ii = 0; ii < blockListeners.size(); ii++)
-			blockListeners.get(ii).onBlockRemoval(world, i, j, k);
-	}
-
 	public static void onNeighborBlockChange(World world, int i, int j, int k, int l)
 	{
 		for(int ii = 0; ii < blockListeners.size(); ii++)

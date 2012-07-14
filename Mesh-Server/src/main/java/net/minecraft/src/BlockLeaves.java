@@ -26,8 +26,6 @@ public class BlockLeaves extends BlockLeavesBase
      */
     public void onBlockRemoval(World par1World, int par2, int par3, int par4)
     {
-    	MinecraftMeshHooks.onBlockRemoval(par1World, par2, par3, par4);
-    	
         int i = 1;
         int j = i + 1;
 

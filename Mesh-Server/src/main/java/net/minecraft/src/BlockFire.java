@@ -364,8 +364,6 @@ public class BlockFire extends Block
      */
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
-    	MinecraftMeshHooks.onBlockAdded(par1World, par2, par3, par4);
-    	
         if (par1World.worldProvider.worldType <= 0 && par1World.getBlockId(par2, par3 - 1, par4) == Block.obsidian.blockID && Block.portal.tryToCreatePortal(par1World, par2, par3, par4))
         {
             return;

@@ -27,8 +27,6 @@ public class BlockRedstoneLight extends Block
      */
     public void onBlockAdded(World par1World, int par2, int par3, int par4)
     {
-    	MinecraftMeshHooks.onBlockAdded(par1World, par2, par3, par4);
-    	
         if (!par1World.isRemote)
         {
             if (powered && !par1World.isBlockIndirectlyGettingPowered(par2, par3, par4))
